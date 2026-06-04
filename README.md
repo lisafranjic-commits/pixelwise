@@ -1,2 +1,2 @@
-PixelWise - README.md
-branch - checkout master
+PixelWise - README.me
+branch - checkout main and branch exercise
