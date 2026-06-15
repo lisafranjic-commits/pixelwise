@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request, Depends
+from app.auth import verify_api_key
 from pydantic import BaseModel
 import numpy as np
 from app.classifier import classify_batch
