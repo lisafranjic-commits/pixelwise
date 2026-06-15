@@ -18,12 +18,12 @@ class ClassifyResponse(BaseModel):
 app = FastAPI()
 
 
-@app.get("/health")
+@app.get("/api/health")
 def health():
     return {"status": "ok", "model_version": "v1"}
 
 
-@app.get("/results")
+@app.get("/api/results")
 def results():
     db = SessionLocal()
     rows = (
@@ -50,7 +50,7 @@ def results():
 
 
 
-@app.post( "/classify",
+@app.post( "/api/classify",
     response_model=ClassifyResponse,
     dependencies=[Depends(verify_api_key)])
 @limiter.limit("30/minute")
