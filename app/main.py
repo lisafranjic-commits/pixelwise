@@ -53,7 +53,7 @@ def results():
 @app.post( "/api/classify",
     response_model=ClassifyResponse,
     dependencies=[Depends(verify_api_key)])
-@limiter.limit("30/minute")
+
 def classify(request: Request, req: ClassifyRequest):
     arr = np.array(req.pixels, dtype=np.uint8)[np.newaxis]
     result = classify_batch(arr)[0]
